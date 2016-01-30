@@ -20,19 +20,20 @@
 
 
         <CheckBox
-            android:id="@+id/cbCar"
+            android:id="@+id/cb_car"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/car" />
 
         <CheckBox
-            android:id="@+id/cbFlight"
+            android:id="@+id/cb_flight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/flight" />
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll_rent_car"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="5dp">
@@ -58,11 +59,14 @@
                 android:id="@+id/rb_rental_no"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/no" />
+                android:text="@string/no"
+                android:checked="true"/>
+
         </RadioGroup>
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll_drive_distance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -72,13 +76,44 @@
             android:text="@string/drive_distance" />
 
         <CheckBox
+            android:id="@+id/cb_car_nearby"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/small_distance_drive" />
 
         <CheckBox
+            android:id="@+id/cb_car_far"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/medium_distance_drive" />
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_flight_distance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/flight_distance" />
+
+        <CheckBox
+            android:id="@+id/cb_flight_near"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/small_distance_flight" />
+
+        <CheckBox
+            android:id="@+id/cb_flight_far"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/medium_distance_flight" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:text="Submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </LinearLayout>

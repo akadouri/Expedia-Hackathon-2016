@@ -31,9 +31,9 @@
     <string name="rental">Do you need to rent a car? </string>
     <string name="flight_distance">How far would you fly?</string>
     <string name="drive_distance">How far would you drive?</string>
-    <string name="small_distance_drive">Nearby \n(100 Miles)</string>
+    <string name="small_distance_drive">Nearby\n(100 Miles)</string>
     <string name="medium_distance_drive">Road Trip</string>
-    <string name="small_distance_flight">Not too far (2 hours)</string>
+    <string name="small_distance_flight">Not too far\n(2 hours)</string>
     <string name="medium_distance_flight">Take me away (:D)</string>
 
 </resources>
