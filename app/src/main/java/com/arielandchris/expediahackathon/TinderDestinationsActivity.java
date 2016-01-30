@@ -1,6 +1,7 @@
 package com.arielandchris.expediahackathon;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -9,9 +10,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.arielandchris.expediahackathon.model.GeoSearch;
 
@@ -63,9 +67,10 @@ public class TinderDestinationsActivity extends AppCompatActivity {
             @Override
             public void onResponse(Response<List<GeoSearch>> response) {
                 // Get result Repo from response.body()
-                Log.d("ApiWrapper", "Successful Response");
-                Log.d("ApiWrapper", "spot: " + response.body().size());
-                Log.d("ApiWrapper", "Successful Response2");
+                desinationsList.setAdapter(new PositionAdapter(TinderDestinationsActivity.this,
+                        R.layout.position_row, response.body()));
+                loadingLayout.setVisibility(View.GONE);
+                desinationsList.setVisibility(View.VISIBLE);
             }
 
             @Override
@@ -73,5 +78,42 @@ public class TinderDestinationsActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    class PositionAdapter extends ArrayAdapter<GeoSearch> {
+
+        Context context;
+        int resource;
+        List<GeoSearch> objects;
+
+        public PositionAdapter(Context context, int resource, List<GeoSearch> objects) {
+            super(context, resource, objects);
+            this.context = context;
+            this.resource = resource;
+            this.objects = objects;
+        }
+
+        public View getView(int position, View convertView, ViewGroup parent) {
+            ViewHolder viewHolder;
+
+            if (convertView != null) {
+                viewHolder = (ViewHolder) convertView.getTag();
+            } else {
+                convertView = ((Activity) context).getLayoutInflater().inflate(resource, parent, false);
+                viewHolder = new ViewHolder(convertView);
+                convertView.setTag(viewHolder);
+            }
+            viewHolder.name.setText(objects.get(position).getName());
+            return convertView;
+        }
+    }
+
+    static class ViewHolder {
+        @Bind(R.id.txt_name)
+        TextView name;
+
+        public ViewHolder(View view) {
+            ButterKnife.bind(this, view);
+        }
     }
 }
