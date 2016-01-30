@@ -6,6 +6,8 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -25,6 +27,7 @@
 
         <activity android:name=".TripSelectionActivity" />
         <activity android:name=".QuestionnaireActivity" />
+        <activity android:name=".TinderDestinationsActivity" />
     </application>
 
 </manifest>

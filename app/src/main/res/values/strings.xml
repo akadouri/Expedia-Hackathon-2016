@@ -36,4 +36,7 @@
     <string name="small_distance_flight">Not too far\n(2 hours)</string>
     <string name="medium_distance_flight">Take me away (:D)</string>
 
+    <!-- Tinder Destination Selector -->
+    <string name="loading_text">Let\'s figure out where you want to go.</string>
+
 </resources>
