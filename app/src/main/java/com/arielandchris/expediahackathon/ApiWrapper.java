@@ -1,17 +1,15 @@
 package com.arielandchris.expediahackathon;
 
-import android.util.Log;
-
 import com.arielandchris.expediahackathon.model.GeoSearch;
 import com.google.gson.Gson;
 
-
 import java.util.List;
 
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.GsonConverterFactory;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -43,36 +41,38 @@ public class ApiWrapper {
 
     public ApiWrapper(String apiKey) {
         API_KEY = apiKey;
+        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+        // set your desired log level
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+        OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+        // add your other interceptors …
+
+        // add logging as last interceptor
+        httpClient.addInterceptor(logging);  // <-- this is the important line!
+
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://terminal2.expedia.com:80/x/")
                 .addConverterFactory(GsonConverterFactory.create())
+                .client(httpClient.build())
                 .build();
         gson = new Gson();
         service = retrofit.create(ExpediaInterface.class);
     }
 
-    public GeoSearch geoSearch(String within, String lat, String lng, String type) {
+    public GeoSearch geoSearch(String within, String lat, String lng, String type, Callback<List<GeoSearch>> callback) {
 
         service.geoSearch(within, lat, lng, type);
         Call<List<GeoSearch>> call = service.geoSearch(within, lat, lng, type);
-        call.enqueue(new Callback<List<GeoSearch>>() {
-            @Override
-            public void onResponse(Response<List<GeoSearch>> response) {
-                // Get result Repo from response.body()
-                Log.d("ApiWrapper", "Successful Response");
-            }
-
-            @Override
-            public void onFailure(Throwable t) {
-
-            }
-        });
+        call.enqueue(callback);
         return null;
     }
 
     public String thingsToDo(String searchTerm) {
         return thingsToDo(searchTerm, "none", "none");
     }
+
     public String thingsToDo(String searchTerm, String startDate, String endDate) {
         return "fddasf";
 
