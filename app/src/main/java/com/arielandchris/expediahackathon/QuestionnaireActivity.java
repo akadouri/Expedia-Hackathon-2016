@@ -1,5 +1,6 @@
 package com.arielandchris.expediahackathon;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -80,13 +81,15 @@ public class QuestionnaireActivity extends AppCompatActivity {
         }
     }
 
-    @OnClick
+    @OnClick(R.id.btn_submit)
     void submit() {
         if(carNearbyCB.isChecked() || carFarCB.isChecked() || flightFarCB.isChecked() || flightNearCB.isChecked()) {
             QuestionnaireResult questionnaireResult = new QuestionnaireResult(wantsToDriveCB.isChecked(),
                   wantsToFlyCB.isChecked(), wantsRentalCB.isChecked(), carNearbyCB.isChecked(), carFarCB.isChecked(),
                     flightNearCB.isChecked(), flightNearCB.isChecked());
-
+            Intent intent = new Intent(this, TinderDestinationsActivity.class);
+            intent.putExtra("questions", questionnaireResult);
+            startActivity(intent);
         } else {
             Toast.makeText(this, "You left something blank yo", Toast.LENGTH_SHORT).show();
         }

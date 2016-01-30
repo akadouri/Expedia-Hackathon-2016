@@ -19,6 +19,7 @@ import retrofit2.http.Query;
 // GeoSearch
 // http://terminal2.expedia.com:80/x/geo/features?within=50km&lat=37.777363&lng=-122.453269&type=airport
 public class ApiWrapper {
+
     private interface ExpediaInterface {
         @GET("geo/features")
         GeoSearch geoSearch(
@@ -32,6 +33,7 @@ public class ApiWrapper {
     private final String API_KEY;
     private Gson gson;
     private ExpediaInterface service;
+
     public ApiWrapper(String apiKey) {
         API_KEY = apiKey;
         Retrofit retrofit = new Retrofit.Builder()
@@ -47,10 +49,11 @@ public class ApiWrapper {
     }
 
     public String thingsToDo(String searchTerm) {
-        thingsToDo(searchTerm, "none", "none");
+        return thingsToDo(searchTerm, "none", "none");
     }
     public String thingsToDo(String searchTerm, String startDate, String endDate) {
+        return "fddasf";
 
-        return "temp";
     }
+
 }
