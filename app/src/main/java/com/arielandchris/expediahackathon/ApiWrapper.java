@@ -12,6 +12,7 @@ import retrofit2.Callback;
 import retrofit2.GsonConverterFactory;
 import retrofit2.Retrofit;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.Query;
 
 /**
@@ -31,7 +32,8 @@ public class ApiWrapper {
                 @Query("within") String within,
                 @Query("lat") String lat,
                 @Query("lng") String lng,
-                @Query("type") String type
+                @Query("type") String type,
+                @Header("Authorization") String apiKey
         );
     }
 
@@ -63,8 +65,8 @@ public class ApiWrapper {
 
     public GeoSearch geoSearch(String within, String lat, String lng, String type, Callback<List<GeoSearch>> callback) {
 
-        service.geoSearch(within, lat, lng, type);
-        Call<List<GeoSearch>> call = service.geoSearch(within, lat, lng, type);
+        //service.geoSearch(within, lat, lng, type, API_KEY);
+        Call<List<GeoSearch>> call = service.geoSearch(within, lat, lng, type, "expedia-apikey key=" + API_KEY);
         call.enqueue(callback);
         return null;
     }
