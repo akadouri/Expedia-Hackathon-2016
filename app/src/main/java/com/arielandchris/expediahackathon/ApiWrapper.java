@@ -1,6 +1,6 @@
 package com.arielandchris.expediahackathon;
 
-import com.arielandchris.GeoSearch;
+import com.arielandchris.expediahackathon.model.GeoSearch;
 import com.google.gson.Gson;
 
 

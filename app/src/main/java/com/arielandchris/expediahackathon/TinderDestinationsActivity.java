@@ -43,5 +43,7 @@ public class TinderDestinationsActivity extends AppCompatActivity {
         Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         double longitude = location.getLongitude();
         double latitude = location.getLatitude();
+        ApiWrapper wrapper = new ApiWrapper(getResources().getString(R.string.ExpediaKey));
+
     }
 }
