@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply from: 'variables.gradle', to: android
 
+
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"

@@ -8,10 +8,14 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.Toast;
+
+import com.arielandchris.expediahackathon.model.QuestionnaireResult;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnCheckedChanged;
+import butterknife.OnClick;
 
 /**
  * Created by ariel on 1/29/16.
@@ -73,6 +77,18 @@ public class QuestionnaireActivity extends AppCompatActivity {
             flightDistanceLayout.setVisibility(View.VISIBLE);
         }else {
             flightDistanceLayout.setVisibility(View.GONE);
+        }
+    }
+
+    @OnClick
+    void submit() {
+        if(carNearbyCB.isChecked() || carFarCB.isChecked() || flightFarCB.isChecked() || flightNearCB.isChecked()) {
+            QuestionnaireResult questionnaireResult = new QuestionnaireResult(wantsToDriveCB.isChecked(),
+                  wantsToFlyCB.isChecked(), wantsRentalCB.isChecked(), carNearbyCB.isChecked(), carFarCB.isChecked(),
+                    flightNearCB.isChecked(), flightNearCB.isChecked());
+
+        } else {
+            Toast.makeText(this, "You left something blank yo", Toast.LENGTH_SHORT).show();
         }
     }
 }
