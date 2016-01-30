@@ -24,6 +24,7 @@
         </activity>
 
         <activity android:name=".TripSelectionActivity" />
+        <activity android:name=".QuestionnaireActivity" />
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package com.arielandchris.expediahackathon;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -21,7 +22,7 @@ public class TripSelectionActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_new_trip)
     public void newTripClicked() {
-
+        startActivity(new Intent(this, QuestionnaireActivity.class));
     }
 
     @OnClick(R.id.btn_join_trip)

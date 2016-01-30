@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">ExpediaHackathon</string>
 
+    <!-- Generic -->
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
@@ -15,6 +19,21 @@
     </string>
 
 
+    <!-- Trip Selection -->
     <string name="new_trip">New Trip</string>
     <string name="join_trip">Join Trip</string>
+
+    <!-- Questionnaire -->
+    <string name="date_range">Select Date Range</string>
+    <string name="mode_of_transportation">How do you want to travel?</string>
+    <string name="car">Car</string>
+    <string name="flight">Flight</string>
+    <string name="rental">Do you need to rent a car? </string>
+    <string name="flight_distance">How far would you fly?</string>
+    <string name="drive_distance">How far would you drive?</string>
+    <string name="small_distance_drive">Nearby \n(100 Miles)</string>
+    <string name="medium_distance_drive">Road Trip</string>
+    <string name="small_distance_flight">Not too far (2 hours)</string>
+    <string name="medium_distance_flight">Take me away (:D)</string>
+
 </resources>
