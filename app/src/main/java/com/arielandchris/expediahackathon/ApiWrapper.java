@@ -1,10 +1,17 @@
 package com.arielandchris.expediahackathon;
 
+import android.util.Log;
+
 import com.arielandchris.expediahackathon.model.GeoSearch;
 import com.google.gson.Gson;
 
 
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.GsonConverterFactory;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -22,7 +29,7 @@ public class ApiWrapper {
 
     private interface ExpediaInterface {
         @GET("geo/features")
-        GeoSearch geoSearch(
+        Call<List<GeoSearch>> geoSearch(
                 @Query("within") String within,
                 @Query("lat") String lat,
                 @Query("lng") String lng,
@@ -45,7 +52,22 @@ public class ApiWrapper {
     }
 
     public GeoSearch geoSearch(String within, String lat, String lng, String type) {
-        return service.geoSearch(within, lat, lng, type);
+
+        service.geoSearch(within, lat, lng, type);
+        Call<List<GeoSearch>> call = service.geoSearch(within, lat, lng, type);
+        call.enqueue(new Callback<List<GeoSearch>>() {
+            @Override
+            public void onResponse(Response<List<GeoSearch>> response) {
+                // Get result Repo from response.body()
+                Log.d("ApiWrapper", "Successful Response");
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+
+            }
+        });
+        return null;
     }
 
     public String thingsToDo(String searchTerm) {
