@@ -22,6 +22,9 @@ public class TinderDestinationsActivity extends AppCompatActivity {
     @Bind(R.id.ll_loading)
     LinearLayout loadingLayout;
 
+    @Bind(R.id.lv)
+    LinearLayout desinationsList;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
