@@ -107,7 +107,8 @@ public class TinderDestinationSelectorActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(ViewHolder viewHolder, int position) {
             Airport airport = cards.get(position);
-            viewHolder.title.setText(airport.getAirportName() + " " + (int)airport.getOrigDist() + "mi");
+            viewHolder.title.setText(airport.getAirportName());
+            viewHolder.miles.setText((int)airport.getOrigDist() + "mi");
         }
 
         @Override
@@ -116,8 +117,11 @@ public class TinderDestinationSelectorActivity extends AppCompatActivity {
         }
 
         class ViewHolder extends RecyclerView.ViewHolder {
+
             @Bind(R.id.card_view_title)
             TextView title;
+            @Bind(R.id.txt_miles)
+            TextView miles;
 
             public ViewHolder(View itemView) {
                 super(itemView);
