@@ -44,6 +44,8 @@ public class ApiWrapper {
                 @Query("type") String type,
                 @Header("Authorization") String apiKey
         );
+        @GET("activities/search")
+
     }
 
     private final String API_KEY;
