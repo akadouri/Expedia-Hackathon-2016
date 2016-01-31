@@ -53,6 +53,7 @@ public class TinderDestinationSelectorActivity extends AppCompatActivity {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         cards = ApiWrapper.getAirportsByDist(this, getIntent().getStringExtra("airportCode"));
+        cards.remove(0);
         selectedAirports = new ArrayList<>();
 
         cardViewAdapter = new CardViewAdapter(cards);
@@ -85,6 +86,7 @@ public class TinderDestinationSelectorActivity extends AppCompatActivity {
                                 cardViewAdapter.notifyDataSetChanged();
                                 footer.setVisibility(View.VISIBLE);
                                 //Start making requests for packages
+                                ApiWrapper.getInstance(getResources().getString(R.string.ExpediaKey)).;
                             }
                         });
         recyclerView.addOnItemTouchListener(swipeTouchListener);

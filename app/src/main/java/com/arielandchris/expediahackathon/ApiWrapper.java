@@ -5,6 +5,7 @@ import android.content.res.AssetManager;
 
 import com.arielandchris.expediahackathon.model.Airport;
 import com.arielandchris.expediahackathon.model.GeoSearch;
+import com.arielandchris.expediahackathon.model.t2d.Activity;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
@@ -44,15 +45,22 @@ public class ApiWrapper {
                 @Query("type") String type,
                 @Header("Authorization") String apiKey
         );
-        @GET("activities/search")
 
+        @GET("activities/search")
+        Call<List<Activity>> activitySearch(
+                @Query("location") String location,
+                @Query("startDate") String startDate,
+                @Query("endDate") String endDate,
+                @Header("Authorization") String apiKey
+        );
     }
 
     private final String API_KEY;
     private Gson gson;
     private ExpediaInterface service;
+    private static ApiWrapper instance;
 
-    public ApiWrapper(String apiKey) {
+    private ApiWrapper(String apiKey) {
         API_KEY = apiKey;
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         // set your desired log level
@@ -74,21 +82,28 @@ public class ApiWrapper {
         service = retrofit.create(ExpediaInterface.class);
     }
 
-    public GeoSearch geoSearch(String within, String lat, String lng, String type, Callback<List<GeoSearch>> callback) {
+    public static ApiWrapper getInstance(String apiKey) {
+        if(instance == null) {
+            instance = new ApiWrapper(apiKey);
+        }
+        return instance;
+    }
 
+    public GeoSearch geoSearch(String within, String lat, String lng, String type, Callback<List<GeoSearch>> callback) {
         //service.geoSearch(within, lat, lng, type, API_KEY);
         Call<List<GeoSearch>> call = service.geoSearch(within, lat, lng, type, "expedia-apikey key=" + API_KEY);
         call.enqueue(callback);
         return null;
     }
 
-    public String thingsToDo(String searchTerm) {
-        return thingsToDo(searchTerm, "none", "none");
+    public String thingsToDo(String searchTerm, Callback<List<Activity>> callback) {
+        return thingsToDo(searchTerm, "", "", callback);
     }
 
-    public String thingsToDo(String searchTerm, String startDate, String endDate) {
-        return "fddasf";
-
+    public String thingsToDo(String searchTerm, String startDate, String endDate, Callback<List<Activity>> callback) {
+        Call<List<Activity>> call = service.activitySearch(searchTerm, startDate, endDate, "expedia-apikey key=" + API_KEY);
+        call.enqueue(callback);
+        return null;
     }
 
     public static ArrayList<Airport> getAirportsByDist(Context context, String origin) {

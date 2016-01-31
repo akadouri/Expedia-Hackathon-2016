@@ -27,7 +27,7 @@ public class Airport implements Comparable<Airport>{
     }
 
     public int compareTo(Airport other) {
-        return (int)(this.dist() - other.dist());
+        return (int)(this.origDistance - other.getOrigDist());
     }
     public double getLat() {
         return this.lat;
