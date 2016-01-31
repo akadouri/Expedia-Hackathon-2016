@@ -1,54 +1,31 @@
 
 package com.arielandchris.expediahackathon.model;
 
-import java.util.ArrayList;
-import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class UnrealDeals {
 
-    @SerializedName("errors")
+    @SerializedName("deals")
     @Expose
-    private Errors errors;
-    @SerializedName("packageDeal")
-    @Expose
-    private List<Package> packageDeal = new ArrayList<Package>();
+    private Deals deals;
 
     /**
      * 
      * @return
-     *     The errors
+     *     The deals
      */
-    public Errors getErrors() {
-        return errors;
+    public Deals getDeals() {
+        return deals;
     }
 
     /**
      * 
-     * @param errors
-     *     The errors
+     * @param deals
+     *     The deals
      */
-    public void setErrors(Errors errors) {
-        this.errors = errors;
-    }
-
-    /**
-     * 
-     * @return
-     *     The packageDeal
-     */
-    public List<Package> getPackageDeal() {
-        return packageDeal;
-    }
-
-    /**
-     * 
-     * @param packageDeal
-     *     The packageDeal
-     */
-    public void setPackageDeal(List<Package> packageDeal) {
-        this.packageDeal = packageDeal;
+    public void setDeals(Deals deals) {
+        this.deals = deals;
     }
 
 }

@@ -34,13 +34,13 @@ public class Package {
     private String currencyCode;
     @SerializedName("totalPackagePrice")
     @Expose
-    private Double totalPackagePrice;
+    private Integer totalPackagePrice;
     @SerializedName("totalPackageSavings")
     @Expose
-    private Double totalPackageSavings;
+    private Integer totalPackageSavings;
     @SerializedName("totalPackageSavingsPct")
     @Expose
-    private Double totalPackageSavingsPct;
+    private Integer totalPackageSavingsPct;
     @SerializedName("packageStartDate")
     @Expose
     private String packageStartDate;
@@ -61,13 +61,10 @@ public class Package {
     private Integer saLodgingTaxesAndFees;
     @SerializedName("saAirBase")
     @Expose
-    private Double saAirBase;
+    private Integer saAirBase;
     @SerializedName("saAirTaxesAndFees")
     @Expose
-    private Double saAirTaxesAndFees;
-    @SerializedName("deeplink")
-    @Expose
-    private String deeplink;
+    private Integer saAirTaxesAndFees;
 
     /**
      * 
@@ -218,7 +215,7 @@ public class Package {
      * @return
      *     The totalPackagePrice
      */
-    public Double getTotalPackagePrice() {
+    public Integer getTotalPackagePrice() {
         return totalPackagePrice;
     }
 
@@ -227,7 +224,7 @@ public class Package {
      * @param totalPackagePrice
      *     The totalPackagePrice
      */
-    public void setTotalPackagePrice(Double totalPackagePrice) {
+    public void setTotalPackagePrice(Integer totalPackagePrice) {
         this.totalPackagePrice = totalPackagePrice;
     }
 
@@ -236,7 +233,7 @@ public class Package {
      * @return
      *     The totalPackageSavings
      */
-    public Double getTotalPackageSavings() {
+    public Integer getTotalPackageSavings() {
         return totalPackageSavings;
     }
 
@@ -245,7 +242,7 @@ public class Package {
      * @param totalPackageSavings
      *     The totalPackageSavings
      */
-    public void setTotalPackageSavings(Double totalPackageSavings) {
+    public void setTotalPackageSavings(Integer totalPackageSavings) {
         this.totalPackageSavings = totalPackageSavings;
     }
 
@@ -254,7 +251,7 @@ public class Package {
      * @return
      *     The totalPackageSavingsPct
      */
-    public Double getTotalPackageSavingsPct() {
+    public Integer getTotalPackageSavingsPct() {
         return totalPackageSavingsPct;
     }
 
@@ -263,7 +260,7 @@ public class Package {
      * @param totalPackageSavingsPct
      *     The totalPackageSavingsPct
      */
-    public void setTotalPackageSavingsPct(Double totalPackageSavingsPct) {
+    public void setTotalPackageSavingsPct(Integer totalPackageSavingsPct) {
         this.totalPackageSavingsPct = totalPackageSavingsPct;
     }
 
@@ -380,7 +377,7 @@ public class Package {
      * @return
      *     The saAirBase
      */
-    public Double getSaAirBase() {
+    public Integer getSaAirBase() {
         return saAirBase;
     }
 
@@ -389,7 +386,7 @@ public class Package {
      * @param saAirBase
      *     The saAirBase
      */
-    public void setSaAirBase(Double saAirBase) {
+    public void setSaAirBase(Integer saAirBase) {
         this.saAirBase = saAirBase;
     }
 
@@ -398,7 +395,7 @@ public class Package {
      * @return
      *     The saAirTaxesAndFees
      */
-    public Double getSaAirTaxesAndFees() {
+    public Integer getSaAirTaxesAndFees() {
         return saAirTaxesAndFees;
     }
 
@@ -407,26 +404,8 @@ public class Package {
      * @param saAirTaxesAndFees
      *     The saAirTaxesAndFees
      */
-    public void setSaAirTaxesAndFees(Double saAirTaxesAndFees) {
+    public void setSaAirTaxesAndFees(Integer saAirTaxesAndFees) {
         this.saAirTaxesAndFees = saAirTaxesAndFees;
-    }
-
-    /**
-     * 
-     * @return
-     *     The deeplink
-     */
-    public String getDeeplink() {
-        return deeplink;
-    }
-
-    /**
-     * 
-     * @param deeplink
-     *     The deeplink
-     */
-    public void setDeeplink(String deeplink) {
-        this.deeplink = deeplink;
     }
 
 }
