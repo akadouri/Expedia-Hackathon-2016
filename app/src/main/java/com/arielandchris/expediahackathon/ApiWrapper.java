@@ -53,6 +53,8 @@ public class ApiWrapper {
                 @Query("endDate") String endDate,
                 @Header("Authorization") String apiKey
         );
+
+        
     }
 
     private final String API_KEY;
