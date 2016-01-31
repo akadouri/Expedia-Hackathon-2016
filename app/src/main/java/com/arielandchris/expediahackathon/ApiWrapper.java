@@ -2,6 +2,7 @@ package com.arielandchris.expediahackathon;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.util.Log;
 
 import com.arielandchris.expediahackathon.model.Airport;
 import com.arielandchris.expediahackathon.model.Deals;
@@ -58,7 +59,7 @@ public class ApiWrapper {
         );
 
         @GET("deals/packages")
-        Call<Deals> unrealDeals(
+        Call<UnrealDeals> unrealDeals(
                 @Query("originTLA") String originTLA,
                 @Query("destinationTLA") String destinationTLA,
                 @Query("startDate") String startDate, // yyyy-mm-dd
@@ -123,16 +124,18 @@ public class ApiWrapper {
     }
 
     public String unrealDeals(String originTLA, String destTLA, String startDate, String endDate, String lengthOfStay) {
-        Call<Deals> call = service.unrealDeals(originTLA, destTLA, startDate, endDate, lengthOfStay, "expedia-apikey key=" + API_KEY);
-        call.enqueue(new Callback<Deals>() {
+        Call<UnrealDeals> call = service.unrealDeals(originTLA, destTLA, startDate, endDate, lengthOfStay, "expedia-apikey key=" + API_KEY);
+        call.enqueue(new Callback<UnrealDeals>() {
             @Override
-            public void onResponse(Response<Deals> response) {
-                unrealDealses.add(response.body());
+            public void onResponse(Response<UnrealDeals> response) {
+                ApiWrapper.getInstance("").unrealDealses.add(response.body().getDeals());
+                Log.d("here", "pcks: " + response.body().getDeals().getPackages().size());
             }
 
             @Override
             public void onFailure(Throwable t) {
-
+                Log.d("here", "failed");
+                Log.d("here", t.getCause().toString());
             }
         });
         return null;
