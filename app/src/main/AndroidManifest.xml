@@ -28,7 +28,8 @@
 
         <activity android:name=".TripSelectionActivity" />
         <activity android:name=".QuestionnaireActivity" />
-        <activity android:name=".TinderDestinationsActivity" />
+        <activity android:name=".OriginAirportSelectorActivity" />
+        <activity android:name=".TinderDestinationSelectorActivity" />
     </application>
 
 </manifest>

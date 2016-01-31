@@ -3,6 +3,7 @@ package com.arielandchris.expediahackathon;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
@@ -29,7 +30,7 @@ import retrofit2.Response;
 /**
  * Created by ariel on 1/30/16.
  */
-public class TinderDestinationsActivity extends AppCompatActivity {
+public class OriginAirportSelectorActivity extends AppCompatActivity {
 
     @Bind(R.id.ll_loading)
     LinearLayout loadingLayout;
@@ -40,7 +41,7 @@ public class TinderDestinationsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tinder_destinations_activity);
+        setContentView(R.layout.origin_airport_activity);
         ButterKnife.bind(this);
 
         //start network call
@@ -63,11 +64,11 @@ public class TinderDestinationsActivity extends AppCompatActivity {
             latitude = -122.312249;
         }
         ApiWrapper wrapper = new ApiWrapper(getResources().getString(R.string.ExpediaKey));
-        wrapper.geoSearch("50km", "" + latitude, "" + longitude, "airport", new Callback<List<GeoSearch>>() {
+        wrapper.geoSearch("200km", "" + latitude, "" + longitude, "airport", new Callback<List<GeoSearch>>() {
             @Override
             public void onResponse(Response<List<GeoSearch>> response) {
                 // Get result Repo from response.body()
-                desinationsList.setAdapter(new PositionAdapter(TinderDestinationsActivity.this,
+                desinationsList.setAdapter(new PositionAdapter(OriginAirportSelectorActivity.this,
                         R.layout.position_row, response.body()));
                 loadingLayout.setVisibility(View.GONE);
                 desinationsList.setVisibility(View.VISIBLE);
@@ -95,7 +96,6 @@ public class TinderDestinationsActivity extends AppCompatActivity {
 
         public View getView(int position, View convertView, ViewGroup parent) {
             ViewHolder viewHolder;
-
             if (convertView != null) {
                 viewHolder = (ViewHolder) convertView.getTag();
             } else {
@@ -104,6 +104,13 @@ public class TinderDestinationsActivity extends AppCompatActivity {
                 convertView.setTag(viewHolder);
             }
             viewHolder.name.setText(objects.get(position).getName());
+            convertView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(OriginAirportSelectorActivity.this, TinderDestinationSelectorActivity.class);
+                    startActivity(intent);
+                }
+            });
             return convertView;
         }
     }
