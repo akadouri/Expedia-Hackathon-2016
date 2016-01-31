@@ -12,8 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.arielandchris.expediahackathon.model.Deals;
 import com.arielandchris.expediahackathon.model.Package;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
@@ -36,7 +38,18 @@ public class UnrealDealsActivity extends AppCompatActivity {
         setContentView(R.layout.unreal_deals_activity);
         ButterKnife.bind(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        List<Package> deals = ApiWrapper.getInstance(getResources().getString(R.string.ExpediaKey)).unrealDealses.get(0).getPackages();
+        List<Deals> unrealDealses = ApiWrapper.getInstance(getResources().getString(R.string.ExpediaKey)).unrealDealses;
+        List<Package> deals = new ArrayList<>();
+        for(int i = 0; i < unrealDealses.size(); i++) {
+            if(unrealDealses.get(i).getPackages().size() > 0) {
+                Package pack = unrealDealses.get(i).getPackages().get(0);
+                Package pack2 = new Package();
+                pack2.setOriginTLA(pack.getOriginTLA());
+                pack2.setDestinationTLA(pack.getDestinationTLA());
+                deals.add(pack2);
+                deals.addAll(unrealDealses.get(i).getPackages());
+            }
+        }
         Log.d("Unreal", "packages size " + deals.size());
         adapter = new CardViewAdapter(deals);
         recyclerView.setAdapter(adapter);
@@ -64,9 +77,16 @@ public class UnrealDealsActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(ViewHolder viewHolder, int position) {
             Package aPackage = cards.get(position);
+            viewHolder.title.setTextSize(25);
             //here
-            viewHolder.title.setText(aPackage.getOriginTLA() + " to " + aPackage.getDestinationTLA() + "\n" + "");
-            viewHolder.miles.setText("$"+aPackage.getTotalPackagePrice() + "\n" + "Savings: " + aPackage.getTotalPackageSavingsPct());
+            if(aPackage.getTotalPackagePrice() == null){
+                viewHolder.title.setText(aPackage.getOriginTLA() + " to " + aPackage.getDestinationTLA());
+                viewHolder.title.setTextSize(40);
+                viewHolder.miles.setText("");
+            } else {
+                viewHolder.title.setText("Option " + position);
+                viewHolder.miles.setText("$"+aPackage.getTotalPackagePrice() + "\n" + "Savings: " + aPackage.getTotalPackageSavingsPct());
+            }
         }
 
         @Override

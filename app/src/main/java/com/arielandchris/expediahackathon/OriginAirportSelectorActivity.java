@@ -110,7 +110,7 @@ public class OriginAirportSelectorActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intent = new Intent(OriginAirportSelectorActivity.this, QuestionnaireActivity.class);
                     int index = name.indexOf('(') + 1;
-                    intent.putExtra("airportCode", name.substring(index, index+3));
+                    intent.putExtra("airportCode", "SEA");
                     startActivity(intent);
                 }
             });

@@ -32,7 +32,7 @@ import retrofit2.Response;
 /**
  * Created by ariel on 1/30/16.
  */
-public class TinderDestinationSelectorActivity extends AppCompatActivity {
+public class TinderDestinationSelectorActivity extends AppCompatActivity implements ApiWrapper.CallbackS {
 
     @Bind(R.id.rv)
     RecyclerView recyclerView;
@@ -88,18 +88,19 @@ public class TinderDestinationSelectorActivity extends AppCompatActivity {
                                     Airport pickedAirport = cards.remove(position);
                                     selectedAirports.add(pickedAirport);
                                     cardViewAdapter.notifyItemRemoved(position);
-                                    ApiWrapper.getInstance(getResources().getString(R.string.ExpediaKey)).unrealDeals(getIntent().getStringExtra("airportCode"),
-                                            "PDX", getIntent().getStringExtra("departureDate"), getIntent().getStringExtra("returnDate"),
-                                            getIntent().getStringExtra("lenStay"));
+                                    ApiWrapper.getInstance(getResources().getString(R.string.ExpediaKey)).unrealDeals("SEA",
+                                            pickedAirport.getCode(), getIntent().getStringExtra("departureDate"), getIntent().getStringExtra("returnDate"),
+                                            getIntent().getStringExtra("lenStay"), TinderDestinationSelectorActivity.this);
                                 }
                                 cardViewAdapter.notifyDataSetChanged();
                                 footer.setVisibility(View.VISIBLE);
+                                loadingTxt.setVisibility(View.VISIBLE);
+                                loadingPB.setVisibility(View.VISIBLE);
+                                packagesBtn.setVisibility(View.GONE);
                                 //Start making requests for packages
                             }
                         });
         recyclerView.addOnItemTouchListener(swipeTouchListener);
-
-        finishedLoading();
     }
 
     private void finishedLoading() {
@@ -111,6 +112,11 @@ public class TinderDestinationSelectorActivity extends AppCompatActivity {
     @OnClick(R.id.btn_packages)
     void packagesBtn() {
         startActivity(new Intent(this, UnrealDealsActivity.class));
+    }
+
+    @Override
+    public void finished() {
+        finishedLoading();
     }
 
     class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.ViewHolder> {

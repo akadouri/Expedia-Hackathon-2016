@@ -85,6 +85,7 @@ public class ApiWrapper {
     private ExpediaInterface service;
     private static ApiWrapper instance;
     public List<Deals> unrealDealses; // Dealses <--- Nice. Gonna go to the api branch to play around with stuff
+    private CallbackS callback;
 
     private ApiWrapper(String apiKey) {
         unrealDealses = new ArrayList<>();
@@ -133,13 +134,15 @@ public class ApiWrapper {
         return null;
     }
 
-    public String unrealDeals(String originTLA, String destTLA, String startDate, String endDate, String lengthOfStay) {
+    public String unrealDeals(String originTLA, String destTLA, String startDate, String endDate, String lengthOfStay, CallbackS callback) {
+        this.callback = callback;
         Call<UnrealDeals> call = service.unrealDeals(originTLA, destTLA, startDate, endDate, lengthOfStay, "expedia-apikey key=" + API_KEY);
         call.enqueue(new Callback<UnrealDeals>() {
             @Override
             public void onResponse(Response<UnrealDeals> response) {
                 ApiWrapper.getInstance("").unrealDealses.add(response.body().getDeals());
                 Log.d("here", "pcks: " + response.body().getDeals().getPackages().size());
+                ApiWrapper.this.callback.finished();
             }
 
             @Override
@@ -218,4 +221,7 @@ public class ApiWrapper {
         return null;
     }
 
+    interface CallbackS {
+        public void finished();
+    }
 }
