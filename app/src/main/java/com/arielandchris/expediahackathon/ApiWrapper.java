@@ -1,8 +1,17 @@
 package com.arielandchris.expediahackathon;
 
+import android.content.Context;
+import android.content.res.AssetManager;
+
+import com.arielandchris.expediahackathon.model.Airport;
 import com.arielandchris.expediahackathon.model.GeoSearch;
 import com.google.gson.Gson;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import okhttp3.OkHttpClient;
@@ -78,6 +87,56 @@ public class ApiWrapper {
     public String thingsToDo(String searchTerm, String startDate, String endDate) {
         return "fddasf";
 
+    }
+
+    public static ArrayList<Airport> getAirportsByDist(Context context, String origin) {
+        AssetManager am = context.getAssets();
+        StringBuilder sb = null;
+        ArrayList<Airport> airportList = new ArrayList<Airport>();
+        Airport originAP = getAirportByCode(context, origin);
+        if (originAP == null) return null; // THROW AN ERROR OR DO THIS <--
+        try {
+            BufferedReader br =  new BufferedReader(new InputStreamReader(am.open("test.txt")));
+            sb = new StringBuilder();
+            String mLine = br.readLine();
+            while (mLine != null) {
+                String lat, lng, code;
+                String[] arr = mLine.split(",");
+                lat = arr[6];
+                lng = arr[7];
+                code = arr[4];
+                airportList.add(new Airport(code, Double.parseDouble(lat) - originAP.getLat(), Double.parseDouble(lng) - originAP.getLng()));
+                mLine = br.readLine();
+            }
+            br.close();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        Collections.sort(airportList);
+        return airportList;
+    }
+
+    public static Airport getAirportByCode(Context context, String code) {
+        AssetManager am = context.getAssets();
+        StringBuilder sb = null;
+        try {
+            BufferedReader br =  new BufferedReader(new InputStreamReader(am.open("validAirports.txt")));
+            sb = new StringBuilder();
+            String mLine = br.readLine();
+            while (mLine != null) {
+                String[] arr = mLine.split(",");
+                if (!arr[4].equalsIgnoreCase(code)) {
+                    mLine = br.readLine();
+                } else {
+                    br.close();
+                    return new Airport(arr[4], arr[6], arr[7]);
+                }
+            }
+            br.close();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }
