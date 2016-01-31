@@ -6,7 +6,7 @@ package com.arielandchris.expediahackathon.model;
 public class Airport implements Comparable<Airport>{
     private String code;
     private double lat, lng;
-    private double origDistance;\
+    private double origDistance;
     private String airportName;
     public Airport(String key, String lat, String lng) {
         this(key, Double.parseDouble(lat), Double.parseDouble(lng));
@@ -22,7 +22,7 @@ public class Airport implements Comparable<Airport>{
     public String getAirportName() {
         return this.airportName;
     }
-    private double dist() {
+    public double dist() {
         return Math.sqrt(Math.pow(this.lat,2) + Math.pow(this.lng,2));
     }
 

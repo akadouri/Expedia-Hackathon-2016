@@ -64,7 +64,7 @@ public class OriginAirportSelectorActivity extends AppCompatActivity {
             latitude = -122.312249;
         }
         ApiWrapper wrapper = new ApiWrapper(getResources().getString(R.string.ExpediaKey));
-        wrapper.geoSearch("200km", "" + latitude, "" + longitude, "airport", new Callback<List<GeoSearch>>() {
+        wrapper.geoSearch("100km", "" + latitude, "" + longitude, "airport", new Callback<List<GeoSearch>>() {
             @Override
             public void onResponse(Response<List<GeoSearch>> response) {
                 // Get result Repo from response.body()

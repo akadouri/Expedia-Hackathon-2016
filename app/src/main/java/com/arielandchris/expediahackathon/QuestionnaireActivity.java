@@ -88,6 +88,7 @@ public class QuestionnaireActivity extends AppCompatActivity {
                   wantsToFlyCB.isChecked(), wantsRentalCB.isChecked(), carNearbyCB.isChecked(), carFarCB.isChecked(),
                     flightNearCB.isChecked(), flightNearCB.isChecked());
             Intent intent = new Intent(this, TinderDestinationSelectorActivity.class);
+            intent.putExtra("airportCode", getIntent().getStringExtra("airportCode"));
             intent.putExtra("questions", questionnaireResult);
             startActivity(intent);
         } else {

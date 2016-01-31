@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.arielandchris.expediahackathon.model.Airport;
 import com.github.brnunes.swipeablerecyclerview.SwipeableRecyclerViewTouchListener;
 
 import java.util.ArrayList;
@@ -38,8 +40,10 @@ public class TinderDestinationSelectorActivity extends AppCompatActivity {
     @Bind(R.id.btn_packages)
     Button packagesBtn;
 
-    List<String> cards;
+    List<Airport> cards;
     CardViewAdapter cardViewAdapter;
+
+    List<Airport> selectedAirports;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,10 +52,9 @@ public class TinderDestinationSelectorActivity extends AppCompatActivity {
         footer.setVisibility(View.INVISIBLE);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        cards = new ArrayList<>();
-        cards.add("Italy");
-        cards.add("Japan");
-        cards.add("Mount Dew");
+        cards = ApiWrapper.getAirportsByDist(this, getIntent().getStringExtra("airportCode"));
+        selectedAirports = new ArrayList<>();
+
         cardViewAdapter = new CardViewAdapter(cards);
         recyclerView.setAdapter(cardViewAdapter);
         SwipeableRecyclerViewTouchListener swipeTouchListener =
@@ -76,7 +79,7 @@ public class TinderDestinationSelectorActivity extends AppCompatActivity {
                             public void onDismissedBySwipeRight(RecyclerView recyclerView, int[] reverseSortedPositions) {
                                 for (int position : reverseSortedPositions) {
 //                                    Toast.makeText(MainActivity.this, mItems.get(position) + " swiped right", Toast.LENGTH_SHORT).show();
-                                    cards.remove(position);
+                                    selectedAirports.add(cards.remove(position));
                                     cardViewAdapter.notifyItemRemoved(position);
                                 }
                                 cardViewAdapter.notifyDataSetChanged();
@@ -89,9 +92,9 @@ public class TinderDestinationSelectorActivity extends AppCompatActivity {
 
     class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.ViewHolder> {
 
-        List<String> cards;
+        List<Airport> cards;
 
-        public CardViewAdapter(List<String> cards) {
+        public CardViewAdapter(List<Airport> cards) {
             this.cards = cards;
         }
 
@@ -103,7 +106,7 @@ public class TinderDestinationSelectorActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(ViewHolder viewHolder, int position) {
-            viewHolder.title.setText(cards.get(position));
+            viewHolder.title.setText(cards.get(position).getCode());
         }
 
         @Override
