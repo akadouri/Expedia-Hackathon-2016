@@ -1,11 +1,10 @@
 
-package com.arielandchris;
+package com.arielandchris.expediahackathon.model.t2d;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-@Generated("org.jsonschema2pojo")
+
 public class CruisesWaterTours {
 
     @SerializedName("count")

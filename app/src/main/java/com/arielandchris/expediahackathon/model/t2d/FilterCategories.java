@@ -1,7 +1,6 @@
 
 package com.arielandchris.expediahackathon.model.t2d;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -10,68 +9,68 @@ public class FilterCategories {
 
     @SerializedName("Private Transfers")
     @Expose
-    private com.arielandchris.PrivateTransfers PrivateTransfers;
+    private com.arielandchris.expediahackathon.model.t2d.PrivateTransfers PrivateTransfers;
     @SerializedName("Shared Transfers")
     @Expose
-    private com.arielandchris.SharedTransfers SharedTransfers;
+    private com.arielandchris.expediahackathon.model.t2d.SharedTransfers SharedTransfers;
     @SerializedName("Adventures")
     @Expose
-    private com.arielandchris.Adventures Adventures;
+    private com.arielandchris.expediahackathon.model.t2d.Adventures Adventures;
     @SerializedName("Air, Balloon & Helicopter Tours")
     @Expose
-    private com.arielandchris.AirBalloonHelicopterTours AirBalloonHelicopterTours;
+    private com.arielandchris.expediahackathon.model.t2d.AirBalloonHelicopterTours AirBalloonHelicopterTours;
     @SerializedName("Attractions")
     @Expose
-    private com.arielandchris.Attractions Attractions;
+    private com.arielandchris.expediahackathon.model.t2d.Attractions Attractions;
     @SerializedName("Cruises & Water Tours")
     @Expose
-    private com.arielandchris.CruisesWaterTours CruisesWaterTours;
+    private com.arielandchris.expediahackathon.model.t2d.CruisesWaterTours CruisesWaterTours;
     @SerializedName("Day Trips & Excursions")
     @Expose
-    private com.arielandchris.DayTripsExcursions DayTripsExcursions;
+    private com.arielandchris.expediahackathon.model.t2d.DayTripsExcursions DayTripsExcursions;
     @SerializedName("Food & Drink")
     @Expose
-    private com.arielandchris.FoodDrink FoodDrink;
+    private com.arielandchris.expediahackathon.model.t2d.FoodDrink FoodDrink;
     @SerializedName("Hop-on Hop-off")
     @Expose
-    private com.arielandchris.HopOnHopOff HopOnHopOff;
+    private com.arielandchris.expediahackathon.model.t2d.HopOnHopOff HopOnHopOff;
     @SerializedName("Multi-Day & Extended Tours")
     @Expose
-    private com.arielandchris.MultiDayExtendedTours MultiDayExtendedTours;
+    private com.arielandchris.expediahackathon.model.t2d.MultiDayExtendedTours MultiDayExtendedTours;
     @SerializedName("Nightlife")
     @Expose
-    private com.arielandchris.Nightlife Nightlife;
+    private com.arielandchris.expediahackathon.model.t2d.Nightlife Nightlife;
     @SerializedName("Private Tours")
     @Expose
-    private com.arielandchris.PrivateTours PrivateTours;
+    private com.arielandchris.expediahackathon.model.t2d.PrivateTours PrivateTours;
     @SerializedName("Show & Sport Tickets")
     @Expose
-    private com.arielandchris.ShowSportTickets ShowSportTickets;
+    private com.arielandchris.expediahackathon.model.t2d.ShowSportTickets ShowSportTickets;
     @SerializedName("Sightseeing Passes")
     @Expose
-    private com.arielandchris.SightseeingPasses SightseeingPasses;
+    private com.arielandchris.expediahackathon.model.t2d.SightseeingPasses SightseeingPasses;
     @SerializedName("Spa")
     @Expose
-    private com.arielandchris.Spa Spa;
+    private com.arielandchris.expediahackathon.model.t2d.Spa Spa;
     @SerializedName("Theme Parks")
     @Expose
-    private com.arielandchris.ThemeParks ThemeParks;
+    private com.arielandchris.expediahackathon.model.t2d.ThemeParks ThemeParks;
     @SerializedName("Tours & Sightseeing")
     @Expose
-    private com.arielandchris.ToursSightseeing ToursSightseeing;
+    private com.arielandchris.expediahackathon.model.t2d.ToursSightseeing ToursSightseeing;
     @SerializedName("Walking & Bike Tours")
     @Expose
-    private com.arielandchris.WalkingBikeTours WalkingBikeTours;
+    private com.arielandchris.expediahackathon.model.t2d.WalkingBikeTours WalkingBikeTours;
     @SerializedName("Water Activities")
     @Expose
-    private com.arielandchris.WaterActivities WaterActivities;
+    private com.arielandchris.expediahackathon.model.t2d.WaterActivities WaterActivities;
 
     /**
      * 
      * @return
      *     The PrivateTransfers
      */
-    public com.arielandchris.PrivateTransfers getPrivateTransfers() {
+    public com.arielandchris.expediahackathon.model.t2d.PrivateTransfers getPrivateTransfers() {
         return PrivateTransfers;
     }
 
@@ -80,7 +79,7 @@ public class FilterCategories {
      * @param PrivateTransfers
      *     The Private Transfers
      */
-    public void setPrivateTransfers(com.arielandchris.PrivateTransfers PrivateTransfers) {
+    public void setPrivateTransfers(com.arielandchris.expediahackathon.model.t2d.PrivateTransfers PrivateTransfers) {
         this.PrivateTransfers = PrivateTransfers;
     }
 
@@ -89,7 +88,7 @@ public class FilterCategories {
      * @return
      *     The SharedTransfers
      */
-    public com.arielandchris.SharedTransfers getSharedTransfers() {
+    public com.arielandchris.expediahackathon.model.t2d.SharedTransfers getSharedTransfers() {
         return SharedTransfers;
     }
 
@@ -98,7 +97,7 @@ public class FilterCategories {
      * @param SharedTransfers
      *     The Shared Transfers
      */
-    public void setSharedTransfers(com.arielandchris.SharedTransfers SharedTransfers) {
+    public void setSharedTransfers(com.arielandchris.expediahackathon.model.t2d.SharedTransfers SharedTransfers) {
         this.SharedTransfers = SharedTransfers;
     }
 
@@ -107,7 +106,7 @@ public class FilterCategories {
      * @return
      *     The Adventures
      */
-    public com.arielandchris.Adventures getAdventures() {
+    public com.arielandchris.expediahackathon.model.t2d.Adventures getAdventures() {
         return Adventures;
     }
 
@@ -116,7 +115,7 @@ public class FilterCategories {
      * @param Adventures
      *     The Adventures
      */
-    public void setAdventures(com.arielandchris.Adventures Adventures) {
+    public void setAdventures(com.arielandchris.expediahackathon.model.t2d.Adventures Adventures) {
         this.Adventures = Adventures;
     }
 
@@ -125,7 +124,7 @@ public class FilterCategories {
      * @return
      *     The AirBalloonHelicopterTours
      */
-    public com.arielandchris.AirBalloonHelicopterTours getAirBalloonHelicopterTours() {
+    public com.arielandchris.expediahackathon.model.t2d.AirBalloonHelicopterTours getAirBalloonHelicopterTours() {
         return AirBalloonHelicopterTours;
     }
 
@@ -134,7 +133,7 @@ public class FilterCategories {
      * @param AirBalloonHelicopterTours
      *     The Air, Balloon & Helicopter Tours
      */
-    public void setAirBalloonHelicopterTours(com.arielandchris.AirBalloonHelicopterTours AirBalloonHelicopterTours) {
+    public void setAirBalloonHelicopterTours(com.arielandchris.expediahackathon.model.t2d.AirBalloonHelicopterTours AirBalloonHelicopterTours) {
         this.AirBalloonHelicopterTours = AirBalloonHelicopterTours;
     }
 
@@ -143,7 +142,7 @@ public class FilterCategories {
      * @return
      *     The Attractions
      */
-    public com.arielandchris.Attractions getAttractions() {
+    public com.arielandchris.expediahackathon.model.t2d.Attractions getAttractions() {
         return Attractions;
     }
 
@@ -152,7 +151,7 @@ public class FilterCategories {
      * @param Attractions
      *     The Attractions
      */
-    public void setAttractions(com.arielandchris.Attractions Attractions) {
+    public void setAttractions(com.arielandchris.expediahackathon.model.t2d.Attractions Attractions) {
         this.Attractions = Attractions;
     }
 
@@ -161,7 +160,7 @@ public class FilterCategories {
      * @return
      *     The CruisesWaterTours
      */
-    public com.arielandchris.CruisesWaterTours getCruisesWaterTours() {
+    public com.arielandchris.expediahackathon.model.t2d.CruisesWaterTours getCruisesWaterTours() {
         return CruisesWaterTours;
     }
 
@@ -170,7 +169,7 @@ public class FilterCategories {
      * @param CruisesWaterTours
      *     The Cruises & Water Tours
      */
-    public void setCruisesWaterTours(com.arielandchris.CruisesWaterTours CruisesWaterTours) {
+    public void setCruisesWaterTours(com.arielandchris.expediahackathon.model.t2d.CruisesWaterTours CruisesWaterTours) {
         this.CruisesWaterTours = CruisesWaterTours;
     }
 
@@ -179,7 +178,7 @@ public class FilterCategories {
      * @return
      *     The DayTripsExcursions
      */
-    public com.arielandchris.DayTripsExcursions getDayTripsExcursions() {
+    public com.arielandchris.expediahackathon.model.t2d.DayTripsExcursions getDayTripsExcursions() {
         return DayTripsExcursions;
     }
 
@@ -188,7 +187,7 @@ public class FilterCategories {
      * @param DayTripsExcursions
      *     The Day Trips & Excursions
      */
-    public void setDayTripsExcursions(com.arielandchris.DayTripsExcursions DayTripsExcursions) {
+    public void setDayTripsExcursions(com.arielandchris.expediahackathon.model.t2d.DayTripsExcursions DayTripsExcursions) {
         this.DayTripsExcursions = DayTripsExcursions;
     }
 
@@ -197,7 +196,7 @@ public class FilterCategories {
      * @return
      *     The FoodDrink
      */
-    public com.arielandchris.FoodDrink getFoodDrink() {
+    public com.arielandchris.expediahackathon.model.t2d.FoodDrink getFoodDrink() {
         return FoodDrink;
     }
 
@@ -206,7 +205,7 @@ public class FilterCategories {
      * @param FoodDrink
      *     The Food & Drink
      */
-    public void setFoodDrink(com.arielandchris.FoodDrink FoodDrink) {
+    public void setFoodDrink(com.arielandchris.expediahackathon.model.t2d.FoodDrink FoodDrink) {
         this.FoodDrink = FoodDrink;
     }
 
@@ -215,7 +214,7 @@ public class FilterCategories {
      * @return
      *     The HopOnHopOff
      */
-    public com.arielandchris.HopOnHopOff getHopOnHopOff() {
+    public com.arielandchris.expediahackathon.model.t2d.HopOnHopOff getHopOnHopOff() {
         return HopOnHopOff;
     }
 
@@ -224,7 +223,7 @@ public class FilterCategories {
      * @param HopOnHopOff
      *     The Hop-on Hop-off
      */
-    public void setHopOnHopOff(com.arielandchris.HopOnHopOff HopOnHopOff) {
+    public void setHopOnHopOff(com.arielandchris.expediahackathon.model.t2d.HopOnHopOff HopOnHopOff) {
         this.HopOnHopOff = HopOnHopOff;
     }
 
@@ -233,7 +232,7 @@ public class FilterCategories {
      * @return
      *     The MultiDayExtendedTours
      */
-    public com.arielandchris.MultiDayExtendedTours getMultiDayExtendedTours() {
+    public com.arielandchris.expediahackathon.model.t2d.MultiDayExtendedTours getMultiDayExtendedTours() {
         return MultiDayExtendedTours;
     }
 
@@ -242,7 +241,7 @@ public class FilterCategories {
      * @param MultiDayExtendedTours
      *     The Multi-Day & Extended Tours
      */
-    public void setMultiDayExtendedTours(com.arielandchris.MultiDayExtendedTours MultiDayExtendedTours) {
+    public void setMultiDayExtendedTours(com.arielandchris.expediahackathon.model.t2d.MultiDayExtendedTours MultiDayExtendedTours) {
         this.MultiDayExtendedTours = MultiDayExtendedTours;
     }
 
@@ -251,7 +250,7 @@ public class FilterCategories {
      * @return
      *     The Nightlife
      */
-    public com.arielandchris.Nightlife getNightlife() {
+    public com.arielandchris.expediahackathon.model.t2d.Nightlife getNightlife() {
         return Nightlife;
     }
 
@@ -260,7 +259,7 @@ public class FilterCategories {
      * @param Nightlife
      *     The Nightlife
      */
-    public void setNightlife(com.arielandchris.Nightlife Nightlife) {
+    public void setNightlife(com.arielandchris.expediahackathon.model.t2d.Nightlife Nightlife) {
         this.Nightlife = Nightlife;
     }
 
@@ -269,7 +268,7 @@ public class FilterCategories {
      * @return
      *     The PrivateTours
      */
-    public com.arielandchris.PrivateTours getPrivateTours() {
+    public com.arielandchris.expediahackathon.model.t2d.PrivateTours getPrivateTours() {
         return PrivateTours;
     }
 
@@ -278,7 +277,7 @@ public class FilterCategories {
      * @param PrivateTours
      *     The Private Tours
      */
-    public void setPrivateTours(com.arielandchris.PrivateTours PrivateTours) {
+    public void setPrivateTours(com.arielandchris.expediahackathon.model.t2d.PrivateTours PrivateTours) {
         this.PrivateTours = PrivateTours;
     }
 
@@ -287,7 +286,7 @@ public class FilterCategories {
      * @return
      *     The ShowSportTickets
      */
-    public com.arielandchris.ShowSportTickets getShowSportTickets() {
+    public com.arielandchris.expediahackathon.model.t2d.ShowSportTickets getShowSportTickets() {
         return ShowSportTickets;
     }
 
@@ -296,7 +295,7 @@ public class FilterCategories {
      * @param ShowSportTickets
      *     The Show & Sport Tickets
      */
-    public void setShowSportTickets(com.arielandchris.ShowSportTickets ShowSportTickets) {
+    public void setShowSportTickets(com.arielandchris.expediahackathon.model.t2d.ShowSportTickets ShowSportTickets) {
         this.ShowSportTickets = ShowSportTickets;
     }
 
@@ -305,7 +304,7 @@ public class FilterCategories {
      * @return
      *     The SightseeingPasses
      */
-    public com.arielandchris.SightseeingPasses getSightseeingPasses() {
+    public com.arielandchris.expediahackathon.model.t2d.SightseeingPasses getSightseeingPasses() {
         return SightseeingPasses;
     }
 
@@ -314,7 +313,7 @@ public class FilterCategories {
      * @param SightseeingPasses
      *     The Sightseeing Passes
      */
-    public void setSightseeingPasses(com.arielandchris.SightseeingPasses SightseeingPasses) {
+    public void setSightseeingPasses(com.arielandchris.expediahackathon.model.t2d.SightseeingPasses SightseeingPasses) {
         this.SightseeingPasses = SightseeingPasses;
     }
 
@@ -323,7 +322,7 @@ public class FilterCategories {
      * @return
      *     The Spa
      */
-    public com.arielandchris.Spa getSpa() {
+    public com.arielandchris.expediahackathon.model.t2d.Spa getSpa() {
         return Spa;
     }
 
@@ -332,7 +331,7 @@ public class FilterCategories {
      * @param Spa
      *     The Spa
      */
-    public void setSpa(com.arielandchris.Spa Spa) {
+    public void setSpa(com.arielandchris.expediahackathon.model.t2d.Spa Spa) {
         this.Spa = Spa;
     }
 
@@ -341,7 +340,7 @@ public class FilterCategories {
      * @return
      *     The ThemeParks
      */
-    public com.arielandchris.ThemeParks getThemeParks() {
+    public com.arielandchris.expediahackathon.model.t2d.ThemeParks getThemeParks() {
         return ThemeParks;
     }
 
@@ -350,7 +349,7 @@ public class FilterCategories {
      * @param ThemeParks
      *     The Theme Parks
      */
-    public void setThemeParks(com.arielandchris.ThemeParks ThemeParks) {
+    public void setThemeParks(com.arielandchris.expediahackathon.model.t2d.ThemeParks ThemeParks) {
         this.ThemeParks = ThemeParks;
     }
 
@@ -359,7 +358,7 @@ public class FilterCategories {
      * @return
      *     The ToursSightseeing
      */
-    public com.arielandchris.ToursSightseeing getToursSightseeing() {
+    public com.arielandchris.expediahackathon.model.t2d.ToursSightseeing getToursSightseeing() {
         return ToursSightseeing;
     }
 
@@ -368,7 +367,7 @@ public class FilterCategories {
      * @param ToursSightseeing
      *     The Tours & Sightseeing
      */
-    public void setToursSightseeing(com.arielandchris.ToursSightseeing ToursSightseeing) {
+    public void setToursSightseeing(com.arielandchris.expediahackathon.model.t2d.ToursSightseeing ToursSightseeing) {
         this.ToursSightseeing = ToursSightseeing;
     }
 
@@ -377,7 +376,7 @@ public class FilterCategories {
      * @return
      *     The WalkingBikeTours
      */
-    public com.arielandchris.WalkingBikeTours getWalkingBikeTours() {
+    public com.arielandchris.expediahackathon.model.t2d.WalkingBikeTours getWalkingBikeTours() {
         return WalkingBikeTours;
     }
 
@@ -386,7 +385,7 @@ public class FilterCategories {
      * @param WalkingBikeTours
      *     The Walking & Bike Tours
      */
-    public void setWalkingBikeTours(com.arielandchris.WalkingBikeTours WalkingBikeTours) {
+    public void setWalkingBikeTours(com.arielandchris.expediahackathon.model.t2d.WalkingBikeTours WalkingBikeTours) {
         this.WalkingBikeTours = WalkingBikeTours;
     }
 
@@ -395,7 +394,7 @@ public class FilterCategories {
      * @return
      *     The WaterActivities
      */
-    public com.arielandchris.WaterActivities getWaterActivities() {
+    public com.arielandchris.expediahackathon.model.t2d.WaterActivities getWaterActivities() {
         return WaterActivities;
     }
 
@@ -404,7 +403,7 @@ public class FilterCategories {
      * @param WaterActivities
      *     The Water Activities
      */
-    public void setWaterActivities(com.arielandchris.WaterActivities WaterActivities) {
+    public void setWaterActivities(com.arielandchris.expediahackathon.model.t2d.WaterActivities WaterActivities) {
         this.WaterActivities = WaterActivities;
     }
 
