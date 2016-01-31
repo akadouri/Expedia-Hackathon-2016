@@ -106,7 +106,11 @@ public class ApiWrapper {
                 lng = arr[7];
                 code = arr[4];
                 code = code.replace("\"","");
-                airportList.add(new Airport(code, Double.parseDouble(lat) - originAP.getLat(), Double.parseDouble(lng) - originAP.getLng()));
+                Airport toAdd = new Airport(code, Double.parseDouble(lat) - originAP.getLat(), Double.parseDouble(lng) - originAP.getLng());
+                toAdd.setOrigDist(Double.parseDouble(lat), Double.parseDouble(lng), originAP.getLat(), originAP.getLng());
+                String airportName = arr[1].replace("\"","");
+                toAdd.setAirportName(airportName);
+                airportList.add(toAdd);
                 mLine = br.readLine();
             }
             br.close();
@@ -131,7 +135,10 @@ public class ApiWrapper {
                     mLine = br.readLine();
                 } else {
                     br.close();
-                    return new Airport(apc, arr[6], arr[7]);
+                    String airportName = arr[1].replace("\"","");
+                    Airport rtn = new Airport(apc, arr[6], arr[7]);
+                    rtn.setAirportName(airportName);
+                    return rtn;
                 }
             }
             br.close();
