@@ -72,7 +72,7 @@ public class ApiWrapper {
     private Gson gson;
     private ExpediaInterface service;
     private static ApiWrapper instance;
-    public List<UnrealDeals> unrealDealses;
+    public List<UnrealDeals> unrealDealses; // Dealses <--- Nice. Gonna go to the api branch to play around with stuff
 
     private ApiWrapper(String apiKey) {
         unrealDealses = new ArrayList<>();
