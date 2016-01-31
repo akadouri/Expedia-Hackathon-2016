@@ -55,10 +55,11 @@ public class Package {
     private String checkOutDate;
     @SerializedName("saLodgingBase")
     @Expose
-    private Integer saLodgingBase;
+    private Double saLodgingBase
+            ;
     @SerializedName("saLodgingTaxesAndFees")
     @Expose
-    private Integer saLodgingTaxesAndFees;
+    private Double saLodgingTaxesAndFees;
     @SerializedName("saAirBase")
     @Expose
     private Double saAirBase;
@@ -344,7 +345,7 @@ public class Package {
      * @return
      *     The saLodgingBase
      */
-    public Integer getSaLodgingBase() {
+    public Double getSaLodgingBase() {
         return saLodgingBase;
     }
 
@@ -353,7 +354,7 @@ public class Package {
      * @param saLodgingBase
      *     The saLodgingBase
      */
-    public void setSaLodgingBase(Integer saLodgingBase) {
+    public void setSaLodgingBase(Double saLodgingBase) {
         this.saLodgingBase = saLodgingBase;
     }
 
@@ -362,7 +363,7 @@ public class Package {
      * @return
      *     The saLodgingTaxesAndFees
      */
-    public Integer getSaLodgingTaxesAndFees() {
+    public Double getSaLodgingTaxesAndFees() {
         return saLodgingTaxesAndFees;
     }
 
@@ -371,7 +372,7 @@ public class Package {
      * @param saLodgingTaxesAndFees
      *     The saLodgingTaxesAndFees
      */
-    public void setSaLodgingTaxesAndFees(Integer saLodgingTaxesAndFees) {
+    public void setSaLodgingTaxesAndFees(Double saLodgingTaxesAndFees) {
         this.saLodgingTaxesAndFees = saLodgingTaxesAndFees;
     }
 

@@ -63,8 +63,10 @@ public class UnrealDealsActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(ViewHolder viewHolder, int position) {
-            Package airport = cards.get(position);
-            viewHolder.title.setText(airport.getCheckInDate());
+            Package aPackage = cards.get(position);
+            //here
+            viewHolder.title.setText(aPackage.getOriginTLA() + " to " + aPackage.getDestinationTLA() + "\n" + "");
+            viewHolder.miles.setText("$"+aPackage.getTotalPackagePrice() + "\n" + "Savings: " + aPackage.getTotalPackageSavingsPct());
         }
 
         @Override
