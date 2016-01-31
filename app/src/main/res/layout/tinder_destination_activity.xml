@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
-        style="@style/Label"
         android:id="@+id/txt_directions"
+        style="@style/Label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/destination_swipe"/>
+        android:text="@string/destination_swipe" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv"
@@ -26,16 +27,26 @@
         android:layout_alignParentStart="true">
 
         <TextView
+            android:id="@+id/txt_loading1"
             style="@style/Label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/loading_text2"
-            android:id="@+id/textView" />
+            android:text="@string/loading_text2" />
 
         <ProgressBar
             android:id="@+id/pb_loading_packages"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"/>
+            android:layout_alignParentRight="true" />
+
+        <Button
+            android:id="@+id/btn_packages"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/look_at_packages"
+            android:visibility="gone"/>
+
     </RelativeLayout>
+
 </RelativeLayout>

@@ -94,7 +94,7 @@ public class OriginAirportSelectorActivity extends AppCompatActivity {
             this.objects = objects;
         }
 
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(final int position, View convertView, ViewGroup parent) {
             ViewHolder viewHolder;
             if (convertView != null) {
                 viewHolder = (ViewHolder) convertView.getTag();
@@ -103,11 +103,14 @@ public class OriginAirportSelectorActivity extends AppCompatActivity {
                 viewHolder = new ViewHolder(convertView);
                 convertView.setTag(viewHolder);
             }
-            viewHolder.name.setText(objects.get(position).getName());
+            final String name = objects.get(position).getName();
+            viewHolder.name.setText(name);
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(OriginAirportSelectorActivity.this, TinderDestinationSelectorActivity.class);
+                    Intent intent = new Intent(OriginAirportSelectorActivity.this, QuestionnaireActivity.class);
+                    int index = name.indexOf('(') + 1;
+                    intent.putExtra("airportCode", name.substring(index, index+3));
                     startActivity(intent);
                 }
             });

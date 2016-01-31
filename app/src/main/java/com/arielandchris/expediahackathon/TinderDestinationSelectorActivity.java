@@ -8,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -29,6 +31,12 @@ public class TinderDestinationSelectorActivity extends AppCompatActivity {
 
     @Bind(R.id.rl_footer)
     RelativeLayout footer;
+    @Bind(R.id.txt_loading1)
+    TextView loadingTxt;
+    @Bind(R.id.pb_loading_packages)
+    ProgressBar loadingPB;
+    @Bind(R.id.btn_packages)
+    Button packagesBtn;
 
     List<String> cards;
     CardViewAdapter cardViewAdapter;
