@@ -8,6 +8,7 @@ public class Airport implements Comparable<Airport>{
     private double lat, lng;
     private double origDistance;
     private String airportName;
+    private String cityName;
     public Airport(String key, String lat, String lng) {
         this(key, Double.parseDouble(lat), Double.parseDouble(lng));
     }
@@ -22,6 +23,8 @@ public class Airport implements Comparable<Airport>{
     public String getAirportName() {
         return this.airportName;
     }
+    public String getCityName() { return this.cityName; }
+    public void setCityName(String cityName) { this.cityName = cityName; }
     public double dist() {
         return Math.sqrt(Math.pow(this.lat,2) + Math.pow(this.lng,2));
     }
