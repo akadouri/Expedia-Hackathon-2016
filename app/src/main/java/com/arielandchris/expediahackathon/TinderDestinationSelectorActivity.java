@@ -89,7 +89,7 @@ public class TinderDestinationSelectorActivity extends AppCompatActivity {
                                     selectedAirports.add(pickedAirport);
                                     cardViewAdapter.notifyItemRemoved(position);
                                     ApiWrapper.getInstance(getResources().getString(R.string.ExpediaKey)).unrealDeals(getIntent().getStringExtra("airportCode"),
-                                            pickedAirport.getCode(), getIntent().getStringExtra("departureDate"), getIntent().getStringExtra("returnDate"),
+                                            "PDX", getIntent().getStringExtra("departureDate"), getIntent().getStringExtra("returnDate"),
                                             getIntent().getStringExtra("lenStay"));
                                 }
                                 cardViewAdapter.notifyDataSetChanged();

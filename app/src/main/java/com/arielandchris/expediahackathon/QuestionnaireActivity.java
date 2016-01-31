@@ -105,9 +105,9 @@ public class QuestionnaireActivity extends AppCompatActivity implements DatePick
     void submit() {
         Intent intent = new Intent(this, TinderDestinationSelectorActivity.class);
         intent.putExtra("airportCode", getIntent().getStringExtra("airportCode"));
-        intent.putExtra("departureDate", departureDate);
-        intent.putExtra("returnDate", returnDate);
-        intent.putExtra("lenStay", "5");
+        intent.putExtra("departureDate", "2016-02-01");
+        intent.putExtra("returnDate", "2016-02-20");
+        intent.putExtra("lenStay", "3");
         startActivity(intent);
     }
 

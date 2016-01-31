@@ -6,7 +6,7 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class PackageDeal {
+public class Package {
 
     @SerializedName("hotelId")
     @Expose

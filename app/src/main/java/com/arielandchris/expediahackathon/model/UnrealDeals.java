@@ -13,7 +13,7 @@ public class UnrealDeals {
     private Errors errors;
     @SerializedName("packageDeal")
     @Expose
-    private List<PackageDeal> packageDeal = new ArrayList<PackageDeal>();
+    private List<Package> packageDeal = new ArrayList<Package>();
 
     /**
      * 
@@ -38,7 +38,7 @@ public class UnrealDeals {
      * @return
      *     The packageDeal
      */
-    public List<PackageDeal> getPackageDeal() {
+    public List<Package> getPackageDeal() {
         return packageDeal;
     }
 
@@ -47,7 +47,7 @@ public class UnrealDeals {
      * @param packageDeal
      *     The packageDeal
      */
-    public void setPackageDeal(List<PackageDeal> packageDeal) {
+    public void setPackageDeal(List<Package> packageDeal) {
         this.packageDeal = packageDeal;
     }
 
