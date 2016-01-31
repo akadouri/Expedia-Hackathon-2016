@@ -38,5 +38,7 @@
 
     <!-- Tinder Destination Selector -->
     <string name="loading_text">Let\'s figure out where you want to go.</string>
+    <string name="destination_swipe">Swipe right to check deals, left if you\'re not really interested in going.</string>
+    <string name="loading_text2">Keep picking places while we load an adventure.</string>
 
 </resources>

@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.github.brnunes.swipeablerecyclerview.SwipeableRecyclerViewTouchListener;
@@ -26,17 +27,25 @@ public class TinderDestinationSelectorActivity extends AppCompatActivity {
     @Bind(R.id.rv)
     RecyclerView recyclerView;
 
+    @Bind(R.id.rl_footer)
+    RelativeLayout footer;
+
+    List<String> cards;
+    CardViewAdapter cardViewAdapter;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tinder_destination_activity);
         ButterKnife.bind(this);
+        footer.setVisibility(View.INVISIBLE);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        List<String> cards = new ArrayList<>();
-        cards.add("hello");
-        cards.add("world");
-        recyclerView.setAdapter(new CardViewAdapter(cards));
+        cards = new ArrayList<>();
+        cards.add("Italy");
+        cards.add("Japan");
+        cards.add("Mount Dew");
+        cardViewAdapter = new CardViewAdapter(cards);
+        recyclerView.setAdapter(cardViewAdapter);
         SwipeableRecyclerViewTouchListener swipeTouchListener =
                 new SwipeableRecyclerViewTouchListener(recyclerView,
                         new SwipeableRecyclerViewTouchListener.SwipeListener() {
@@ -47,12 +56,24 @@ public class TinderDestinationSelectorActivity extends AppCompatActivity {
 
                             @Override
                             public void onDismissedBySwipeLeft(RecyclerView recyclerView, int[] reverseSortedPositions) {
-
+                                for (int position : reverseSortedPositions) {
+//                                    Toast.makeText(MainActivity.this, mItems.get(position) + " swiped left", Toast.LENGTH_SHORT).show();
+                                    cards.remove(position);
+                                    cardViewAdapter.notifyItemRemoved(position);
+                                }
+                                cardViewAdapter.notifyDataSetChanged();
                             }
 
                             @Override
                             public void onDismissedBySwipeRight(RecyclerView recyclerView, int[] reverseSortedPositions) {
-
+                                for (int position : reverseSortedPositions) {
+//                                    Toast.makeText(MainActivity.this, mItems.get(position) + " swiped right", Toast.LENGTH_SHORT).show();
+                                    cards.remove(position);
+                                    cardViewAdapter.notifyItemRemoved(position);
+                                }
+                                cardViewAdapter.notifyDataSetChanged();
+                                footer.setVisibility(View.VISIBLE);
+                                //Start making requests for packages
                             }
                         });
         recyclerView.addOnItemTouchListener(swipeTouchListener);
