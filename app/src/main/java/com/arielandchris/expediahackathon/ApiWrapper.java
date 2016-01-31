@@ -96,7 +96,7 @@ public class ApiWrapper {
         Airport originAP = getAirportByCode(context, origin);
         if (originAP == null) return null; // THROW AN ERROR OR DO THIS <--
         try {
-            BufferedReader br =  new BufferedReader(new InputStreamReader(am.open("test.txt")));
+            BufferedReader br =  new BufferedReader(new InputStreamReader(am.open("validAirports.txt")));
             sb = new StringBuilder();
             String mLine = br.readLine();
             while (mLine != null) {
