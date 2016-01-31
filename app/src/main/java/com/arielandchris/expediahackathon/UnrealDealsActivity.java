@@ -55,10 +55,11 @@ public class UnrealDealsActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
-    @OnClick(R.id.btn_browse_activies)
+
+   /* @OnClick(R.id.btn_browse_activies)
     void browseActiviesClicked() {
         startActivity(new Intent(this, ActivitySelectionActivity.class));
-    }
+    }*/
 
     class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.ViewHolder> {
 
