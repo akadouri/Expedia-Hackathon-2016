@@ -5,6 +5,7 @@ import android.content.res.AssetManager;
 
 import com.arielandchris.expediahackathon.model.Airport;
 import com.arielandchris.expediahackathon.model.GeoSearch;
+import com.arielandchris.expediahackathon.model.UnrealDeals;
 import com.arielandchris.expediahackathon.model.t2d.Activity;
 import com.google.gson.Gson;
 
@@ -54,7 +55,16 @@ public class ApiWrapper {
                 @Header("Authorization") String apiKey
         );
 
-        
+        @GET("deals/packages")
+        Call<UnrealDeals> unrealDeals(
+                @Query("originTLA") String originTLA,
+                @Query("destinationTLA") String destinationTLA,
+                @Query("startDate") String startDate, // yyyy-mm-dd
+                @Query("endDate") String endDate,
+                @Query("lengthOfStay") String lengthOfStay,
+                @Header("Authorization") String apiKey
+        );
+
     }
 
     private final String API_KEY;
@@ -104,6 +114,12 @@ public class ApiWrapper {
 
     public String thingsToDo(String searchTerm, String startDate, String endDate, Callback<List<Activity>> callback) {
         Call<List<Activity>> call = service.activitySearch(searchTerm, startDate, endDate, "expedia-apikey key=" + API_KEY);
+        call.enqueue(callback);
+        return null;
+    }
+
+    public String unrealDeals(String originTLA, String destTLA, String startDate, String endDate, String lengthOfStay, Callback<UnrealDeals> callback) {
+        Call<UnrealDeals> call = service.unrealDeals(originTLA, destTLA, startDate, endDate, lengthOfStay, "expedia-apikey key=" + API_KEY);
         call.enqueue(callback);
         return null;
     }
