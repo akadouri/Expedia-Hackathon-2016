@@ -44,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="@string/look_at_packages"
+            android:text="Your adventure options await."
             android:visibility="gone"/>
 
     </RelativeLayout>

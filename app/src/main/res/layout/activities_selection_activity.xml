@@ -3,16 +3,28 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="0px"
-        android:layout_weight="9"/>
+        android:layout_height="wrap_content"
+        style="@style/Label"
+        android:gravity="center"
+        android:text="Now the hard part, pick your path."/>
 
-    <Button
-        android:id="@+id/btn_browse_activies"
+    <TextView
+        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
-        android:layout_height="0px"
-        android:layout_weight="1"
-        android:text="Browse Activities"/>
+        android:layout_height="wrap_content"
+        style="@style/Label"
+        android:gravity="left"
+        android:text="SEA -> PDX for 3 days\n Activity 1\n Activity 2\n Friends that live there:\n    Total Cost: 460"/>
+
+
+    <TextView
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Label"
+        android:gravity="left"
+        android:text="SEA -> SFO for 5 days\n Activity 1\n Activity 2\n Friends that live there:\n    Total Cost: 760"/>
+
 </LinearLayout>
