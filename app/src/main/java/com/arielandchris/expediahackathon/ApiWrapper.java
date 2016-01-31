@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.AssetManager;
 
 import com.arielandchris.expediahackathon.model.Airport;
+import com.arielandchris.expediahackathon.model.Deals;
 import com.arielandchris.expediahackathon.model.GeoSearch;
 import com.arielandchris.expediahackathon.model.UnrealDeals;
 import com.arielandchris.expediahackathon.model.t2d.Activity;
@@ -57,7 +58,7 @@ public class ApiWrapper {
         );
 
         @GET("deals/packages")
-        Call<UnrealDeals> unrealDeals(
+        Call<Deals> unrealDeals(
                 @Query("originTLA") String originTLA,
                 @Query("destinationTLA") String destinationTLA,
                 @Query("startDate") String startDate, // yyyy-mm-dd
@@ -72,7 +73,7 @@ public class ApiWrapper {
     private Gson gson;
     private ExpediaInterface service;
     private static ApiWrapper instance;
-    public List<UnrealDeals> unrealDealses; // Dealses <--- Nice. Gonna go to the api branch to play around with stuff
+    public List<Deals> unrealDealses; // Dealses <--- Nice. Gonna go to the api branch to play around with stuff
 
     private ApiWrapper(String apiKey) {
         unrealDealses = new ArrayList<>();
@@ -122,10 +123,10 @@ public class ApiWrapper {
     }
 
     public String unrealDeals(String originTLA, String destTLA, String startDate, String endDate, String lengthOfStay) {
-        Call<UnrealDeals> call = service.unrealDeals(originTLA, destTLA, startDate, endDate, lengthOfStay, "expedia-apikey key=" + API_KEY);
-        call.enqueue(new Callback<UnrealDeals>() {
+        Call<Deals> call = service.unrealDeals(originTLA, destTLA, startDate, endDate, lengthOfStay, "expedia-apikey key=" + API_KEY);
+        call.enqueue(new Callback<Deals>() {
             @Override
-            public void onResponse(Response<UnrealDeals> response) {
+            public void onResponse(Response<Deals> response) {
                 unrealDealses.add(response.body());
             }
 
