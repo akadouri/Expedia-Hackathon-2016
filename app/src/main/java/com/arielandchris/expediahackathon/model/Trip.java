@@ -42,7 +42,7 @@ public class Trip {
         activityList.add(activity);
     }
     public List<Activity> getActivityList() { return this.activityList; }
-    
+
 
 
 }
