@@ -38,7 +38,7 @@ public class Airport implements Comparable<Airport>{
     public String getCode() {
         return this.code;
     }
-    public getOrigDist() {
+    public double getOrigDist() {
         return this.origDistance;
     }
     public void setOrigDist(double lat1, double lng1, double lat2, double lng2) {
