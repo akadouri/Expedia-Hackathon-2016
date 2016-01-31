@@ -7,6 +7,7 @@ import android.util.Log;
 import com.arielandchris.expediahackathon.model.Airport;
 import com.arielandchris.expediahackathon.model.Deals;
 import com.arielandchris.expediahackathon.model.GeoSearch;
+import com.arielandchris.expediahackathon.model.Trip;
 import com.arielandchris.expediahackathon.model.UnrealDeals;
 import com.arielandchris.expediahackathon.model.pkgs.Packages;
 import com.arielandchris.expediahackathon.model.t2d.Activity;
@@ -86,9 +87,11 @@ public class ApiWrapper {
     private static ApiWrapper instance;
     public List<Deals> unrealDealses; // Dealses <--- Nice. Gonna go to the api branch to play around with stuff
     private CallbackS callback;
+    public List<Trip> tripList;
 
     private ApiWrapper(String apiKey) {
         unrealDealses = new ArrayList<>();
+        tripList = new ArrayList<>();
         API_KEY = apiKey;
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         // set your desired log level
