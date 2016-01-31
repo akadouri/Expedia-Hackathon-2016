@@ -42,6 +42,10 @@ public class Airport implements Comparable<Airport>{
         return this.origDistance;
     }
     public void setOrigDist(double lat1, double lng1, double lat2, double lng2) {
+        lat1 = Math.toRadians(lat1);
+        lng1 = Math.toRadians(lng1);
+        lat2 = Math.toRadians(lat2);
+        lng2 = Math.toRadians(lng2);
         double dlat = lat2 - lat1;
         double dlng = lng2 - lng1;
         double r = 3961.0; // Radius for earth in miles
@@ -50,6 +54,7 @@ public class Airport implements Comparable<Airport>{
         double d = r * c;
         this.origDistance = d;
     }
+
     //public latlngToMiles() {
      //   double a = (sin(dlat/2))^2 + cos(lat1) * cos(lat2) * (sin(dlon/2))^2
       //  c = 2 * atan2( sqrt(a), sqrt(1-a) )

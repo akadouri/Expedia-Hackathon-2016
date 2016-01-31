@@ -106,7 +106,8 @@ public class TinderDestinationSelectorActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(ViewHolder viewHolder, int position) {
-            viewHolder.title.setText(cards.get(position).getCode());
+            Airport airport = cards.get(position);
+            viewHolder.title.setText(airport.getAirportName() + " " + (int)airport.getOrigDist() + "mi");
         }
 
         @Override
