@@ -105,6 +105,7 @@ public class ApiWrapper {
                 lat = arr[6];
                 lng = arr[7];
                 code = arr[4];
+                code = code.replace("\"","");
                 airportList.add(new Airport(code, Double.parseDouble(lat) - originAP.getLat(), Double.parseDouble(lng) - originAP.getLng()));
                 mLine = br.readLine();
             }
@@ -125,11 +126,12 @@ public class ApiWrapper {
             String mLine = br.readLine();
             while (mLine != null) {
                 String[] arr = mLine.split(",");
-                if (!arr[4].equalsIgnoreCase(code)) {
+                String apc = arr[4].replace("\"","");
+                if (!apc.equalsIgnoreCase(code)) {
                     mLine = br.readLine();
                 } else {
                     br.close();
-                    return new Airport(arr[4], arr[6], arr[7]);
+                    return new Airport(apc, arr[6], arr[7]);
                 }
             }
             br.close();
