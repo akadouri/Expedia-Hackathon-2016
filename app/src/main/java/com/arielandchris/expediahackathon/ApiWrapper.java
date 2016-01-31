@@ -8,6 +8,7 @@ import com.arielandchris.expediahackathon.model.Airport;
 import com.arielandchris.expediahackathon.model.Deals;
 import com.arielandchris.expediahackathon.model.GeoSearch;
 import com.arielandchris.expediahackathon.model.UnrealDeals;
+import com.arielandchris.expediahackathon.model.pkgs.Packages;
 import com.arielandchris.expediahackathon.model.t2d.Activity;
 import com.google.gson.Gson;
 
@@ -65,6 +66,15 @@ public class ApiWrapper {
                 @Query("startDate") String startDate, // yyyy-mm-dd
                 @Query("endDate") String endDate,
                 @Query("lengthOfStay") String lengthOfStay,
+                @Header("Authorization") String apiKey
+        );
+
+        @GET("packages")
+        Call<Packages> packageSearch(
+                @Query("originAirport") String originAirport,
+                @Query("destinationAirport") String destinationAirport,
+                @Query("departureDate") String departureDate,
+                @Query("returnDate") String returnDate,
                 @Header("Authorization") String apiKey
         );
 
@@ -138,6 +148,12 @@ public class ApiWrapper {
                 Log.d("here", t.getCause().toString());
             }
         });
+        return null;
+    }
+
+    public String packageSearch(String originAirport, String destAirport, String startDate, String endDate, Callback<Packages> callback){
+        Call<Packages> call = service.packageSearch(originAirport, destAirport, startDate, endDate, "expedia-apikey key=" + API_KEY);
+        call.enqueue(callback);
         return null;
     }
 
