@@ -30,6 +30,7 @@
         <activity android:name=".QuestionnaireActivity" />
         <activity android:name=".OriginAirportSelectorActivity" />
         <activity android:name=".TinderDestinationSelectorActivity" />
+        <activity android:name=".UnrealDealsActivity" />
     </application>
 
 </manifest>

@@ -24,7 +24,8 @@
     <string name="join_trip">Join Trip</string>
 
     <!-- Questionnaire -->
-    <string name="date_range">Select Date Range</string>
+    <string name="date_range">Departure Date</string>
+    <string name="date_range2">Return Date</string>
     <string name="mode_of_transportation">How do you want to travel?</string>
     <string name="car">Car</string>
     <string name="flight">Flight</string>

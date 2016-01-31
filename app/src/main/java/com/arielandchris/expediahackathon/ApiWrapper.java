@@ -21,6 +21,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.GsonConverterFactory;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
@@ -71,8 +72,10 @@ public class ApiWrapper {
     private Gson gson;
     private ExpediaInterface service;
     private static ApiWrapper instance;
+    public List<UnrealDeals> unrealDealses;
 
     private ApiWrapper(String apiKey) {
+        unrealDealses = new ArrayList<>();
         API_KEY = apiKey;
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         // set your desired log level
@@ -118,9 +121,19 @@ public class ApiWrapper {
         return null;
     }
 
-    public String unrealDeals(String originTLA, String destTLA, String startDate, String endDate, String lengthOfStay, Callback<UnrealDeals> callback) {
+    public String unrealDeals(String originTLA, String destTLA, String startDate, String endDate, String lengthOfStay) {
         Call<UnrealDeals> call = service.unrealDeals(originTLA, destTLA, startDate, endDate, lengthOfStay, "expedia-apikey key=" + API_KEY);
-        call.enqueue(callback);
+        call.enqueue(new Callback<UnrealDeals>() {
+            @Override
+            public void onResponse(Response<UnrealDeals> response) {
+                unrealDealses.add(response.body());
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+
+            }
+        });
         return null;
     }
 
