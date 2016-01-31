@@ -1,5 +1,6 @@
 package com.arielandchris.expediahackathon;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +18,7 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by ariel on 1/30/16.
@@ -34,10 +36,15 @@ public class UnrealDealsActivity extends AppCompatActivity {
         setContentView(R.layout.unreal_deals_activity);
         ButterKnife.bind(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        List<Package> deals = ApiWrapper.getInstance(getResources().getString(R.string.ExpediaKey)).unrealDealses.get(0).getPackageDeal();
-        Log.d("Unreal", "deals size " + ApiWrapper.getInstance(getResources().getString(R.string.ExpediaKey)).unrealDealses.size());
+        List<Package> deals = ApiWrapper.getInstance(getResources().getString(R.string.ExpediaKey)).unrealDealses.get(0).getPackages();
+        Log.d("Unreal", "packages size " + deals.size());
         adapter = new CardViewAdapter(deals);
         recyclerView.setAdapter(adapter);
+    }
+
+    @OnClick(R.id.btn_browse_activies)
+    void browseActiviesClicked() {
+        startActivity(new Intent(this, ActivitySelectionActivity.class));
     }
 
     class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.ViewHolder> {
